@@ -5,27 +5,25 @@ import ScheMngtInsert from './components/ScheMngtInsert';
 import ScheMngtList from './components/ScheMngtList';
 import { useCallback, useRef, useState } from 'react';
 
+
+function createBulkSche() {
+    const array = [];
+    for(let i = 1; i <= 2500; i++) {
+        array.push({
+            id : i,
+            text : `할 일 ${i}`,
+            checked : false,
+        });
+    }
+
+    return array;
+}
+
 const App = () => {
-  const [schedules, setSchedules] = useState([
-    {
-      id: 1,
-      text: '리액트의 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '컴포넌트 스타일링해 보기',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '일정 관리 앱 만들어 보기',
-      checked: false,
-    },
-  ]);
+  const [schedules, setSchedules] = useState(createBulkSche());
 
   // 고유 id 값
-  const nextId = useRef(4);
+  const nextId = useRef(2501);
 
   const onInsert = useCallback(
     (text) => {
