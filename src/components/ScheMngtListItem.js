@@ -23,4 +23,4 @@ const ScheMngtListItem = ({ sche, onRemove, onToggle }) => {
   );
 };
 
-export default ScheMngtListItem;
+export default React.memo(ScheMngtListItem);
